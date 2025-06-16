@@ -39,7 +39,7 @@
 
             <!-- Correo -->
             <div class="mb-4">
-              <label for="email" class="form-label-login">Correo Electrónco</label>
+              <label for="email" class="form-label-login">Correo Electrónico</label>
               <input type="email" id="email" name="email" class="form-control input-register-email" required>
             </div>
 
