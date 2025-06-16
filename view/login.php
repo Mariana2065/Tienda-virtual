@@ -1,3 +1,30 @@
+<?php
+
+session_start();
+require_once 'db/db.php';
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+
+  $errores = [];
+
+  if (empty($email)){
+    $errores[] = "El campo de correo electrónico es obligatorio.";
+  }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    $errores[] = "El correo electrónico no es válido.";
+  }
+  if(empty($password)){
+    $errores[] = "El campo de contraseña es obligatorio.";
+  }
+
+  if(empty($errores)){
+    
+  }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
