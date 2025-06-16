@@ -1,5 +1,61 @@
 <?php
 
+session_start();
+require_once 'db.php';
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+  $nombre = $_POST['nombre'];
+  $apellido = $_POST['apellidos'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
+  $confirm_password = $_POST['confirm-password'];
+
+  $errores = [];
+
+  if (empty($nombre)) {
+    $errores[] = "El campo de nombre es obligatorio.";
+  }
+
+  if (empty($apellido)) {
+    $errores[] = "El campo de apellido es obligatorio.";
+  }
+
+  if (empty($email)) {
+    $errores[] = "El campo de correo electrónico es obligatorio.";
+  } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errores[] = "El correo electrónico no es válido.";
+  }
+
+  if (empty($password)) {
+    $errores[] = "El campo de contraseña es obligatorio.";
+  } elseif (strlen($password) < 8) {
+    $errores[] = "La contraseña debe tener al menos 8 caracteres.";
+  }
+
+  if ($password !== $confirm_password) {
+    $errores[] = "Las contraseñas no coinciden.";
+  }
+
+  if(empty($errores)){
+    // Preparar la consulta para insertar el usuario
+    $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, apellidos, email, password) VALUES (?, ?, ?, ?)");
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+    
+    if ($stmt) {
+      $stmt->bind_param("ssss", $nombre, $apellido, $email, $hashed_password);
+      if ($stmt->execute()) {
+        $_SESSION['success'] = "Registro exitoso. Puedes iniciar sesión ahora.";
+        header("Location: login.php");
+        exit();
+      } else {
+        $errores[] = "Error al registrar el usuario: " . $stmt->error;
+      }
+      $stmt->close();
+    } else {
+      $errores[] = "Error al preparar la consulta: " . $conexion->error;
+    }
+  }
+}
 
 ?>
 <!DOCTYPE html>
@@ -27,8 +83,15 @@
       <div class="col-md-6 d-flex justify-content-center align-items-center bg-white">
         <div class="register-form-right">
           <h2 class="form-title-register">Formulario de Registro</h2>
-
-          <form action="" method="">
+          <?php if(isset($_SESSION['success'])): ?>
+            <div class="alert alert-success">
+          <?php 
+            echo $_SESSION['success'];
+            unset($_SESSION['success']); // Limpiar el mensaje después de mostrarlo
+          ?>
+            </div>
+          <?php endif; ?>
+          <form action="" method="POST">
             <!-- Nombre y Apellido -->
             <div class="row g-3 mb-4">
               <div class="col-md-6">
@@ -37,7 +100,7 @@
               </div>
               <div class="col-md-6">
                 <label for="apellido" class="form-label-register">Apellido</label>
-                <input type="text" id="apellido" name="apellido" class="form-control input-register" required>
+                <input type="text" id="apellido" name="apellidos" class="form-control input-register" required>
               </div>
             </div>
 

@@ -1,9 +1,16 @@
 <?php
 
-$conexion = new mysqli('localhost', 'usuario', 'contraseña', 'tienda_sena');
+$host = 'localhost';
+$usuario = 'root';
+$password = '';
+$database = 'tienda_sena';
+
+$conexion = new mysqli($host, $usuario, $password, $database);
 
 if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
+}else{
+    echo 'Conexion exitosa la base de datos';
 }
 
 ?>
