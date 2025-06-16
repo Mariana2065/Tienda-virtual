@@ -9,8 +9,6 @@ $conexion = new mysqli($host, $usuario, $password, $database);
 
 if ($conexion->connect_error) {
     die("Conexión fallida: " . $conexion->connect_error);
-}else{
-    echo 'Conexion exitosa la base de datos';
 }
 
 ?>

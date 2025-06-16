@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require_once 'db.php';
+require_once '../db/db.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
   $nombre = $_POST['nombre'];
@@ -35,6 +35,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
   if ($password !== $confirm_password) {
     $errores[] = "Las contraseñas no coinciden.";
   }
+  $check = $conexion->prepare("SELECT id FROM usuarios WHERE email = ?");
+  $check->bind_param("s", $email);
+  $check->execute();
+  $check->store_result();
+
+  if ($check->num_rows > 0) {
+    $errores[] = "Ya existe una cuenta con este correo electrónico.";
+  }
+$check->close();
 
   if(empty($errores)){
     // Preparar la consulta para insertar el usuario
@@ -120,6 +129,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 <label for="confirm-password" class="form-label-register">Confirmar Contraseña</label>
                 <input type="password" id="confirm-password" name="confirm-password" class="form-control input-register" required>
               </div>
+              <?php
+                if (isset($error) && !empty($error)) {
+                echo '<div class="alert alert-danger mt-3">' . htmlspecialchars($error) . '</div>';
+            }
+?>
             </div>
 
             <!-- Botón -->

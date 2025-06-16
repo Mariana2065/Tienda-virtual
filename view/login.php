@@ -1,28 +1,47 @@
 <?php
-
 session_start();
-require_once 'db.php';
+require_once '../db/db.php'; // Ajusta la ruta si es necesario
 
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-  $email = $_POST['email'];
+$errores = [];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $email = trim($_POST['email']);
   $password = $_POST['password'];
 
-  $errores = [];
-
-  if (empty($email)){
-    $errores[] = "El campo de correo electrónico es obligatorio.";
-  }elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-    $errores[] = "El correo electrónico no es válido.";
+  if (empty($email)) {
+    $errores[] = "El campo de correo es obligatorio.";
   }
-  if(empty($password)){
+
+  if (empty($password)) {
     $errores[] = "El campo de contraseña es obligatorio.";
   }
 
-  if(empty($errores)){
+  if (empty($errores)) {
+    // Buscar usuario por email
+    $stmt = $conexion->prepare("SELECT id, nombre, password FROM usuarios WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
 
+    if ($resultado->num_rows == 1) {
+      $usuario = $resultado->fetch_assoc();
+
+      if (password_verify($password, $usuario['password'])) {
+        // Inicio de sesión correcto
+        $_SESSION['usuario_id'] = $usuario['id'];
+        $_SESSION['usuario_nombre'] = $usuario['nombre'];
+        header("Location: index_view.php");
+        exit();
+      } else {
+        $errores[] = "Contraseña incorrecta.";
+      }
+    } else {
+      $errores[] = "No se encontró una cuenta con ese correo.";
+    }
+
+    $stmt->close();
   }
 }
-
 ?>
 
 <!DOCTYPE html>
