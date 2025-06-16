@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="col-md-6 d-flex align-items-center justify-content-center left-panel-login">
         <div class="login-form-container w-100" style="max-width: 400px;">
           <h2 class="form-title text-center mb-5">Iniciar sesión</h2>
-          <form action="tu_url_de_procesamiento" method="POST">
+          <form method="POST">
             <div class="mb-3">
               <label class="form-label-login">Correo electrónico</label>
               <input type="email" name="email" class="form-control input-login" placeholder="Ingresa tu correo" required>
