@@ -6,25 +6,25 @@
     <title>Powerly Navbar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="./style.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <!-- Menú hamburguesa -->
         <button class="icon-menu-btn me-3" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
-            <img src="./issets/icon-menú.png" class="lista-desplegable"></img>
+            <img src="../assets/icon-menú.png" class="lista-desplegable"></img>
         </button>
 
         <!-- Logo -->
         <a class="logo-header d-flex align-items-center mx-auto" href="#">
-            <img src="./issets/icon-powerly.png" alt="Logo powerly" class="logo-powerly-header">
+            <img src="../assets/icon-powerly.png" alt="Logo powerly" class="logo-powerly-header">
             <strong>POWERLY</strong>
         </a>
 
         <!-- Íconos de carrito y perfil -->
         <div class="d-flex gap-4">
-            <a href="#" class="icon-btn"><img src="./issets/icon-carrito-compras.png" class="icon-perfil"></img></a>
-            <a href="#" class="icon-btn"><img src="./issets/icon-perfil.png" class="icon-carrito-compras"></img></a>
+            <a href="#" class="icon-btn"><img src="../assets/icon-carrito-compras.png" class="icon-perfil"></img></a>
+            <a href="#" class="icon-btn"><img src="../assets/icon-perfil.png" class="icon-carrito-compras"></img></a>
         </div>
     </header>
 
@@ -145,7 +145,7 @@
       <div class="contenedor-productos d-flex flex-wrap gap-3">
         <!--Tarjetas-->
        <div class="card" style="width: 18rem;">
-          <img src="./issets/icon-powerly.png" class="card-img-top" alt="...">
+          <img src="../assets/icon-powerly.png" class="card-img-top" alt="...">
           <div class="card-body">
             <p class="card-text">$0000</p>
             <p class="card-text">Nombre</p>
@@ -153,15 +153,15 @@
           </div>
         </div>
          <div class="card" style="width: 18rem;">
-          <img src="./issets/icon-powerly.png" class="card-img-top" alt="...">
+          <img src="../assets/icon-powerly.png" class="card-img-top" alt="...">
           <div class="card-body">
             <p class="card-text">$0000</p>
             <p class="card-text">Nombre</p>
             <p class="card-text">Descripción</p>
           </div>
         </div>
-         <div class="card" style="width: 18rem;">
-          <img src="./issets/icon-powerly.png" class="card-img-top" alt="...">
+        <div class="card" style="width: 18rem;">
+          <img src="../assets/icon-powerly.png" class="card-img-top" alt="...">
           <div class="card-body">
             <p class="card-text">$0000</p>
             <p class="card-text">Nombre</p>
@@ -169,8 +169,8 @@
           </div>
         </div>
           <!--Tarjetas 2-->
-       <div class="card" style="width: 18rem;">
-          <img src="./issets/icon-powerly.png" class="card-img-top" alt="...">
+      <div class="card" style="width: 18rem;">
+          <img src="../assets/icon-powerly.png" class="card-img-top" alt="...">
           <div class="card-body">
             <p class="card-text">$0000</p>
             <p class="card-text">Nombre</p>
@@ -178,15 +178,15 @@
           </div>
         </div>
          <div class="card" style="width: 18rem;">
-          <img src="./issets/icon-powerly.png" class="card-img-top" alt="...">
+          <img src="../assets/icon-powerly.png" class="card-img-top" alt="...">
           <div class="card-body">
             <p class="card-text">$0000</p>
             <p class="card-text">Nombre</p>
             <p class="card-text">Descripción</p>
           </div>
         </div>
-         <div class="card" style="width: 18rem;">
-          <img src="./issets/icon-powerly.png" class="card-img-top" alt="...">
+        <div class="card" style="width: 18rem;">
+          <img src="../assets/icon-powerly.png" class="card-img-top" alt="...">
           <div class="card-body">
             <p class="card-text">$0000</p>
             <p class="card-text">Nombre</p>
@@ -200,7 +200,7 @@
 </div>
 <footer class="footer-powely">
   <div class="logo-footer d-flex align-items-center">
-    <img src="./issets/icon-powerly.png" alt="Logo Powerly" class="logo-powerly-footer">
+    <img src="../assets/icon-powerly.png" alt="Logo Powerly" class="logo-powerly-footer">
     <strong>POWERLY</strong>
   </div>
   <p>&copy; 2025 Powerly | Todos los derechos reservados.</p>
