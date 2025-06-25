@@ -481,3 +481,41 @@ margin-top: 2.5rem;
  background-color: var(--azul-claro);
   cursor: pointer;
 }
+.encabezado-confirmar{
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 1.5rem;
+}
+/*Interfaz confirmación de pedido*/
+.producto-confirmacion {
+  border: 1px solid #000;
+  margin-bottom: 1.5rem;
+  width: 340px; 
+
+}
+
+.imagen-producto {
+  height: 120px;
+}
+
+
+.img-producto {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.nombre {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.precio {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+.cantidad {
+  font-size: 0.9rem;
+  color: #888;
+}
