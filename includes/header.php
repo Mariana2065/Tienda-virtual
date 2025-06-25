@@ -9,25 +9,25 @@
     <title>Powerly Navbar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="./style.css" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
     <header class="header">
         <!-- Menú hamburguesa -->
         <button class="icon-menu-btn me-3" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
-            <img src="./issets/icon-menú.png" class="lista-desplegable"></img>
+            <img src="../assets/icon-menú.png" class="lista-desplegable"></img>
         </button>
 
         <!-- Logo -->
         <a class="logo-header d-flex align-items-center mx-auto" href="#">
-            <img src="./issets/icon-powerly.png" alt="Logo powerly" class="logo-powerly-header">
+            <img src="../assets/icon-powerly.png" alt="Logo powerly" class="logo-powerly-header">
             <strong>POWERLY</strong>
         </a>
 
         <!-- Íconos de carrito y perfil -->
         <div class="d-flex gap-4">
-            <a href="#" class="icon-btn"><img src="./issets/icon-carrito-compras.png" class="icon-perfil"></img></a>
-            <a href="#" class="icon-btn"><img src="./issets/icon-perfil.png" class="icon-carrito-compras"></img></a>
+            <a href="#" class="icon-btn"><img src="../assets/icon-carrito-compras.png" class="icon-perfil"></img></a>
+            <a href="#" class="icon-btn"><img src="../assets/icon-perfil.png" class="icon-carrito-compras"></img></a>
         </div>
     </header>
 

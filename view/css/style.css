@@ -1,0 +1,483 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Definiendo los colores que se van a implementar */
+:root {
+  --azul: #4764cd;
+  --blanco: #ffffff;
+  --negro: #000000;
+  --rojo: #EC7265;
+  --azul-claro: #8094DC;
+}
+
+/* panel izquierdo y dereccho */
+.left-panel-login {
+  background: var(--blanco);
+}
+
+.right-panel-icon-login {
+  background: var(--azul);
+}
+
+/*Título*/
+.title-powerly-login,
+.title-powerly-register {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 4rem;
+  font-weight: 600;
+  color: var(--blanco);
+  letter-spacing: 2px;
+}
+
+/* logo*/
+.icon-powerly-login,
+.icon-powerly-register {
+  max-width: 160px;
+  width: 60%;
+  height: auto;
+}
+
+/* titulo del formulario*/
+.form-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+/*el label de los inputs */
+.form-label-login,
+.form-label-register {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.input-login,
+.input-register {
+  height: 3rem;
+}
+
+/* boton ingresar*/
+.btn-primary {
+  width: 100%;
+  background-color: var(--azul);
+  border-color: var(--azul);
+  font-family: 'Roboto', sans-serif;
+  padding: 0.6rem 0;
+  font-size: 1.1rem;
+}
+
+
+
+/*ESTILOS FORMULARIO REGISTRO*/
+.left-panel-register {
+  background: var(--negro);
+}
+
+
+/*Formulario de registro titulo*/
+.form-title-register {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--negro);
+}
+
+/*Input del email*/
+.input-register-email {
+  height: 3rem;
+}
+
+/*Boton de registrar*/
+.btn-register {
+  background: var(--negro);
+  border-color: var(--negro);
+}
+
+/*Estilos de El header*/
+/*barra del header*/
+.header {
+  height: 4rem;
+  width: 100vw;
+  background-color: var(--negro);
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+/*Iconos del carrito de compras*/
+.icon-carrito-compras,
+.icon-perfil {
+  width: 2rem;
+  height: 2rem;
+  gap: 3rem;
+  margin-right: 1.5rem;
+}
+
+/*LOGO LETRA POWERLY*/
+.logo-header {
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: var(--blanco);
+  font-size: 1.5rem;
+}
+
+/*ICONO DEL LOGO*/
+.logo-powerly-header {
+  width: 3rem;
+}
+
+.lista-desplegable {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-menu-btn {
+  background: none;
+  border: none;
+}
+
+.btn-cerrar-sesion {
+  border-radius: 10px;
+  width: 9rem;
+  height: 2.5rem;
+  background-color: var(--rojo);
+  border-color: #e46052;
+  box-shadow: #e46052 2px 2px 2px;
+  width: 100%;
+}
+
+.menu-burguer {
+  width: 10rem;
+}
+
+.nav-categorias {
+  height: 2.5rem;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--azul-claro);
+  justify-content: center;
+}
+
+.nav-categorias ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  align-content: center;
+  gap: 10px;
+  font-family: 'roboto', sans-serif;
+  margin-top: 0.5rem;
+}
+
+/*Estilos panel de filtros*/
+.contenedor-filtros {
+  width: 20vw;
+  height: 100%;
+  display: flex;
+}
+
+.contenedor-btn-filtros {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  margin-top: 5rem;
+  gap: 2rem;
+  margin-left: 2rem;
+}
+
+.btn-desplegable {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 5rem;
+  width: 100%;
+  font-size: 1.2rem;
+}
+
+/*Estilos de las tarjetas de productos*/
+.contenedor-productos {
+  justify-content: space-around;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  border: none;
+}
+
+.footer-powely {
+  width: 100%;
+  height: auto;
+  padding: 1.5rem 1rem;
+  background-color: var(--azul);
+  color: var(--blanco);
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  margin-top: 2rem;
+}
+
+.logo-footer {
+  justify-content: center;
+  margin-bottom: 0.5rem;
+}
+
+.logo-powerly-footer {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-right: 0.5rem;
+}
+
+/*INTERFAZ DE LOS PRODUCTOS*/
+.regresar {
+  width: 100vw;
+  height: 4rem;
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+}
+
+.flecha-regresar-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-left: 1rem;
+  margin-right: 0.5rem;
+}
+
+/*TARJETA DEL PRODUCTO*/
+.producto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   margin-left: 19rem;
+}
+
+.card {
+  width: 90vw;
+  border: none;
+  border-radius: 1rem;
+}
+
+/* Imagen del producto */
+.foto-producto {
+  width: 100%;
+  height: auto;
+  border-radius: 1rem 0 0 1rem;
+  object-fit: cover;
+  padding: 1rem;
+}
+
+/* Contenido de la tarjeta */
+.card-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem;
+ 
+}
+
+/* Título del producto */
+.card-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+/* Botón de comprar */
+.btn-comprar {
+  width: 90%;
+  max-width: 200px;
+  background-color: var(--azul);
+  border: none;
+  color: var(--blanco);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1rem;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+  margin-top: 1.5rem;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+  margin-left: 5rem;
+}
+
+.btn-comprar:hover {
+  background-color: var(--azul-claro);
+  cursor: pointer;
+}
+/* INTERFAZ DEL CARRITO */
+
+.contenedor-pagina-carrito {
+  margin-top: 30px;
+}
+
+.fila-carrito {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.columna-carrito-izquierda {
+  padding: 10px 20px;
+}
+
+.encabezado-carrito h2 {
+  font-weight: bold;
+}
+
+.texto-total {
+  color: #555;
+  font-size: 14px;
+}
+
+.producto-carrito {
+  margin-bottom: 20px;
+}
+
+.tarjeta-producto {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: #fff;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.btn-eliminar {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  
+
+}
+
+.selector-cantidad {
+  width: 80px;
+  margin-top: 10px;
+}
+
+
+.columna-carrito-derecha {
+  padding: 10px 20px;
+}
+
+.resumen-pedido {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+}
+
+.lista-resumen {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-resumen li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.total-pedido {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+
+.btn-resumen {
+  background-color: #3f51b5;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 5px;
+  padding: 12px;
+  border: none;
+}
+
+.btn-resumen span {
+  margin-left: 5px;
+  font-weight: bold;
+}
+.btn-resumen:hover {
+ background-color: var(--azul-claro);
+  cursor: pointer;
+}
+/*ESTILOS FORMULARIO PAGAR*/
+
+/*Contenedor formulario pagar*/
+.contenedor-formulario-pagar{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formulario-pagar{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.encabezado-pagar{
+  text-align: center;
+  margin-top: 3rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.formulario-pagar > input{
+  width: 25rem;
+  border: none;
+  height: 1.2rem;
+  margin: 0;
+  padding: 0;
+  border-bottom: var(--negro) 1px solid;
+}
+.form-label{
+display: block;
+width: 100vw;
+text-align: left;
+margin-left: 61rem;
+padding: 0;
+margin-top: 2.5rem;
+}
+.btn-confirmar-pedido{
+   background-color: #3f51b5;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 12px;
+  border: none;
+  margin-top: 2rem;
+  width: 12rem;
+  height: 3rem;
+}
+.btn-confirmar-pedido:hover {
+ background-color: var(--azul-claro);
+  cursor: pointer;
+}
