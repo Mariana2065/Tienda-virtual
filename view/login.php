@@ -1,3 +1,49 @@
+<?php
+session_start();
+require_once '../db/db.php'; // Ajusta la ruta si es necesario
+
+$errores = [];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $email = trim($_POST['email']);
+  $password = $_POST['password'];
+
+  if (empty($email)) {
+    $errores[] = "El campo de correo es obligatorio.";
+  }
+
+  if (empty($password)) {
+    $errores[] = "El campo de contraseña es obligatorio.";
+  }
+
+  if (empty($errores)) {
+    // Buscar usuario por email
+    $stmt = $conexion->prepare("SELECT id, nombre, password FROM usuarios WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+
+    if ($resultado->num_rows == 1) {
+      $usuario = $resultado->fetch_assoc();
+
+      if (password_verify($password, $usuario['password'])) {
+        // Inicio de sesión correcto
+        $_SESSION['usuario_id'] = $usuario['id'];
+        $_SESSION['usuario_nombre'] = $usuario['nombre'];
+        header("Location: index_view.php");
+        exit();
+      } else {
+        $errores[] = "Contraseña incorrecta.";
+      }
+    } else {
+      $errores[] = "No se encontró una cuenta con ese correo.";
+    }
+
+    $stmt->close();
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +63,7 @@
       <div class="col-md-6 d-flex align-items-center justify-content-center left-panel-login">
         <div class="login-form-container w-100" style="max-width: 400px;">
           <h2 class="form-title text-center mb-5">Iniciar sesión</h2>
-          <form action="tu_url_de_procesamiento" method="POST">
+          <form method="POST" action=''>
             <div class="mb-3">
               <label class="form-label-login">Correo electrónico</label>
               <input type="email" name="email" class="form-control input-login" placeholder="Ingresa tu correo" required>
@@ -32,10 +78,10 @@
       </div>
 
       <!-- Panel derecho nombre + icono -->
-      <div class="col-md-6 d-flex flex-column align-items-center justify-content-center right-panel-icon-login">
-        <img src="../assets/icon-powerly.png" alt="Powerly" class="icon-powerly-login">
-        <h1 class="title-powerly-login mt-3">POWERLY</h1>
-      </div>
+      <!-- <div class="col-md-6 d-flex flex-column align-items-center justify-content-center right-panel-icon-login"> -->
+        <!-- <img src="../assets/icon-powerly.png" alt="Powerly" class="icon-powerly-login"> -->
+        <!-- <h1 class="title-powerly-login mt-3">POWERLY</h1> -->
+      <!-- </div> -->
     </div>
   </div>
 
