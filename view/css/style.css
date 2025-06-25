@@ -429,3 +429,55 @@ body {
  background-color: var(--azul-claro);
   cursor: pointer;
 }
+/*ESTILOS FORMULARIO PAGAR*/
+
+/*Contenedor formulario pagar*/
+.contenedor-formulario-pagar{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.formulario-pagar{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.encabezado-pagar{
+  text-align: center;
+  margin-top: 3rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.formulario-pagar > input{
+  width: 25rem;
+  border: none;
+  height: 1.2rem;
+  margin: 0;
+  padding: 0;
+  border-bottom: var(--negro) 1px solid;
+}
+.form-label{
+display: block;
+width: 100vw;
+text-align: left;
+margin-left: 61rem;
+padding: 0;
+margin-top: 2.5rem;
+}
+.btn-confirmar-pedido{
+   background-color: #3f51b5;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  padding: 12px;
+  border: none;
+  margin-top: 2rem;
+  width: 12rem;
+  height: 3rem;
+}
+.btn-confirmar-pedido:hover {
+ background-color: var(--azul-claro);
+  cursor: pointer;
+}
