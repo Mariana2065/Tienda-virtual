@@ -38,7 +38,7 @@
     <!-- Columna derecha -->
     <div class="col-md-6 d-flex flex-column align-items-center justify-content-start">
       <label for="editar-producto-imagen" class="form-label editar-producto-label">Imagen</label>
-      <div class="border mb-2" style="width: 200px; height: 200px;"></div>
+      <div id='preview-imagen' class="border mb-2" style="width: 200px; height: 200px; overflow: hidden;"></div>
       <input type="file" class="form-control editar-producto-file" id="editar-producto-imagen" name="imagen" style="width: 200px;">
     </div>
 
@@ -48,4 +48,24 @@
     </div>
   </form>
 </main>
+<script>
+document.getElementById('editar-producto-imagen').addEventListener('change', function(event) {
+  const file = event.target.files[0];
+  const preview = document.getElementById('preview-imagen');
+  preview.innerHTML = ""; // Limpiar preview anterior
+  if (file && file.type.startsWith('image/')) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.style.width = "100%";
+      img.style.height = "100%";
+      img.style.objectFit = "cover"; // Cambia 'contain' por 'cover'
+      img.style.display = "block";
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  }
+});
+</script>
 <?php include '../includes/footer.php'; ?>
