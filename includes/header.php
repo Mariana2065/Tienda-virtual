@@ -12,6 +12,7 @@
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
+    
     <header class="header">
         <!-- Menú hamburguesa -->
         <button class="icon-menu-btn me-3" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">

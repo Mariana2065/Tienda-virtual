@@ -519,3 +519,144 @@ margin-top: 2.5rem;
   font-size: 0.9rem;
   color: #888;
 }
+/*Pedidos del cliente*/
+.contenedor-tabla-pedidos-usuarios{
+  width: 100vw;
+  height: 70vh;
+}
+.tabla-pedidos {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-pedidos thead th {
+  font-weight: bold;
+  border-bottom: 1px solid #000;
+}
+
+.tabla-pedidos tbody td {
+  border-bottom: 1px solid #ccc;
+  padding: 0.75rem;
+  font-size: 0.95rem;
+}
+/*ADMIN GESTIONAR PRODUCTOS*/
+.btn-crear-gestionar-productos {
+  background-color: #4cd38a;
+  color: var(--blanco);
+  font-weight: bold;
+}
+
+.btn-editar-gestionar-productos {
+  background-color: #4cd38a;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-eliminar-gestionar-productos {
+  background-color: var(--rojo);
+  color: var(--blanco);
+  font-weight: bold;
+}
+.btn-eliminar-gestionar-productos:hover {
+  background-color: var(--rojo);
+}
+.btn-crear-gestionar-productos:hover,
+.btn-editar-gestionar-productos:hover {
+  background-color: #3bb373;
+}
+
+.btn-eliminar-gestionar-productos:hover {
+  background-color:var(--rojo);
+}
+
+.tabla-gestionar-productos th {
+  font-weight: bold;
+}
+
+.titulo-gestionar-productos {
+  font-family: 'Montserrat', sans-serif;
+}
+.contenedor-tabla-gestion{
+  width: 100vw;
+  height: 70vh;
+
+}
+/*ADMIN GESTIONAR CATEGORIAS*/
+.btn-editar-gestionar-categorias {
+  background-color: #4cd38a;
+  color:var(--blanco);
+  font-weight: bold;
+}
+
+.btn-eliminar-gestionar-categorias {
+  background-color:var(--rojo);
+  color: var(--blanco);
+  font-weight: bold;
+}
+
+.btn-editar-gestionar-categorias:hover {
+  background-color:#4cd38a;
+}
+
+.btn-eliminar-gestionar-categorias:hover {
+  background-color: var(--rojo);
+}
+
+.tabla-gestionar-categorias th {
+  font-weight: bold;
+}
+
+.titulo-gestionar-categorias {
+  font-family: 'Montserrat', sans-serif;
+}
+.contenedor-tabla-gestion-categorias {
+  width: 100vw;
+  height: 70vh;
+}
+/*EDITAR AGREGAR PRODUCTO*/
+.titulo-editar-producto {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.input-editar-producto {
+  font-family: 'Roboto', sans-serif;
+  border: 1px solid #000;
+}
+
+.btn-subir-imagen-editar-producto {
+  background-color:var(--azul);
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-subir-imagen-editar-producto:hover {
+  background-color:var(--azul-claro);
+}
+
+.btn-guardar-editar-producto {
+  background-color:#4cd38a;
+  color: var(--blanco);
+  font-weight: bold;
+  padding: 0.6rem 2rem;
+  border: none;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.btn-guardar-editar-producto:hover {
+  background-color:#4cd38a;
+}
+
+.editar-producto-label {
+  font-weight: 500;
+  font-size: 1rem;
+  color:var(--negro);
+  margin-bottom: 0.3rem;
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+
