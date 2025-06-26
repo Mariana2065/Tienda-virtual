@@ -1,4 +1,3 @@
-<?php include '../includes/header.php'; ?>
 <?php
 require_once '../db/db.php';
 
@@ -14,7 +13,7 @@ if ($id) {
     if ($res && $res->num_rows > 0) {
         $cat = $res->fetch_assoc();
         $nombre_categoria = $cat['nombre'];
-    }
+      }
 }
 
 // Guardar categoría (crear o editar)
@@ -22,50 +21,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre_categoria = $_POST['nombre_categoria'] ?? '';
     if (empty($nombre_categoria)) {
         $errores[] = "El nombre de la categoría es obligatorio.";
-    }
+      }
 
-    if (empty($errores)) {
+      if (empty($errores)) {
         if (isset($_POST['id']) && $_POST['id']) {
             // Editar
             $id_edit = intval($_POST['id']);
             $sql = "UPDATE categorias SET nombre='$nombre_categoria' WHERE id=$id_edit";
             $conexion->query($sql);
-        } else {
-            // Crear
-            $sql = "INSERT INTO categorias (nombre) VALUES ('$nombre_categoria')";
-            $conexion->query($sql);
-        }
+            } else {
+              // Crear
+              $sql = "INSERT INTO categorias (nombre) VALUES ('$nombre_categoria')";
+              $conexion->query($sql);
+            }
         // Redirigir para evitar reenvío de formulario
         header("Location: admin-gestionar-categoria.php");
         exit;
+      }
     }
-}
 
-// Eliminar categoría
+    // Eliminar categoría
 if (isset($_GET['eliminar'])) {
     $id_eliminar = intval($_GET['eliminar']);
     $conexion->query("DELETE FROM categorias WHERE id=$id_eliminar");
     header("Location: admin-gestionar-categoria.php");
     exit;
-}
+  }
 
-// Obtener todas las categorías
-$categorias = [];
-$res = $conexion->query("SELECT * FROM categorias");
-if ($res) {
+  // Obtener todas las categorías
+  $categorias = [];
+  $res = $conexion->query("SELECT * FROM categorias");
+  if ($res) {
     $categorias = $res->fetch_all(MYSQLI_ASSOC);
-}
-?>
+  }
+  ?>
+  <?php include '../includes/header.php'; ?>
 
 <main class="contenedor-tabla-gestion-categorias container mt-5">
   <h2 class="text-center mb-4 titulo-gestionar-categorias">GESTIÓN DE CATEGORÍAS</h2>
-
+  
   <!-- Formulario para crear/editar categoría -->
   <div class="mb-4">
     <form class="row g-3" method="POST">
       <?php if ($id): ?>
         <input type="hidden" name="id" value="<?php echo $id; ?>">
-      <?php endif; ?>
+        <?php endif; ?>
       <div class="col-auto">
         <input type="text" class="form-control" name="nombre_categoria" placeholder="Nombre de la categoría" value="<?php echo htmlspecialchars($nombre_categoria); ?>">
       </div>
