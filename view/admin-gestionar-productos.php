@@ -1,10 +1,17 @@
 <?php include '../includes/header.php'; ?>
+<?php
+require_once '../db/db.php';
+
+// Obtener productos de la base de datos
+$sql = "SELECT * FROM productos";
+$resultado = $conexion->query($sql);
+?>
 
 <main class="contenedor-tabla-gestion container mt-5">
   <h2 class="text-center mb-4 titulo-gestionar-productos">GESTION DE PRODUCTOS</h2>
 
   <div class="mb-3">
-    <button class="btn btn-crear-gestionar-productos">Crear producto</button>
+    <a href="editar-agregar-productos.php" class="btn btn-crear-gestionar-productos">Crear producto</a>
   </div>
 
   <table class="table table-bordered text-center tabla-gestionar-productos">
@@ -18,16 +25,18 @@
       </tr>
     </thead>
     <tbody>
+      <?php while ($prod = $resultado->fetch_assoc()): ?>
       <tr>
-        <td>1</td>
-        <td>NOMBRE</td>
-        <td>PRECIO</td>
-        <td>2</td>
+        <td><?php echo $prod['id']; ?></td>
+        <td><?php echo htmlspecialchars($prod['nombre']); ?></td>
+        <td><?php echo $prod['precio']; ?></td>
+        <td><?php echo $prod['stock']; ?></td>
         <td>
-          <button class="btn btn-editar-gestionar-productos me-2">Editar</button>
-          <button class="btn btn-eliminar-gestionar-productos">Eliminar</button>
+          <a href="editar-agregar-productos.php?id=<?php echo $prod['id']; ?>" class="btn btn-editar-gestionar-productos me-2">Editar</a>
+          <a href="eliminar-producto.php?id=<?php echo $prod['id']; ?>" class="btn btn-eliminar-gestionar-productos" onclick="return confirm('¿Seguro que deseas eliminar este producto?');">Eliminar</a>
         </td>
       </tr>
+      <?php endwhile; ?>
     </tbody>
   </table>
 </main>
