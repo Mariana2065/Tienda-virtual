@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'admin') {
+    header('Location: ../index.php');
+    exit;
+}
 require_once '../db/db.php';
 //eliminar producto
 if (isset($_GET['eliminar'])) {

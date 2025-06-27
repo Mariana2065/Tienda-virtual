@@ -1,4 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'admin') {
+    header('Location: ../index.php');
+    exit;
+}
+
+
 require_once '../db/db.php';
 
 // Procesar formulario para crear o editar categoría
