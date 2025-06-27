@@ -1,7 +1,15 @@
-<?php include '../includes/header.php'; ?>
 <?php
 require_once '../db/db.php';
+//eliminar producto
+if (isset($_GET['eliminar'])) {
+    $id_eliminar = intval($_GET['eliminar']);
+    $conexion->query("DELETE FROM productos WHERE id=$id_eliminar");
+    header("Location: admin-gestionar-productos.php");
+    exit;
+}
 
+
+include '../includes/header.php';
 // Obtener productos de la base de datos
 $sql = "SELECT * FROM productos";
 $resultado = $conexion->query($sql);
@@ -33,7 +41,7 @@ $resultado = $conexion->query($sql);
         <td><?php echo $prod['stock']; ?></td>
         <td>
           <a href="editar-agregar-productos.php?id=<?php echo $prod['id']; ?>" class="btn btn-editar-gestionar-productos me-2">Editar</a>
-          <a href="eliminar-producto.php?id=<?php echo $prod['id']; ?>" class="btn btn-eliminar-gestionar-productos" onclick="return confirm('¿Seguro que deseas eliminar este producto?');">Eliminar</a>
+          <a href="admin-gestionar-productos.php?eliminar=<?php echo $prod['id']; ?>" class="btn btn-eliminar-gestionar-productos" onclick="return confirm('¿Seguro que deseas eliminar este producto?');">Eliminar</a>
         </td>
       </tr>
       <?php endwhile; ?>
