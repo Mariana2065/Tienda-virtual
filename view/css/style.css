@@ -265,7 +265,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-   margin-left: 19rem;
+  margin-left: 19rem;
 }
 
 .card {
@@ -290,7 +290,7 @@ body {
   flex-direction: column;
   justify-content: center;
   margin-top: 2rem;
- 
+
 }
 
 /* Título del producto */
@@ -329,6 +329,7 @@ body {
   background-color: var(--azul-claro);
   cursor: pointer;
 }
+
 /* INTERFAZ DEL CARRITO */
 
 .contenedor-pagina-carrito {
@@ -371,7 +372,7 @@ body {
   position: absolute;
   top: 8px;
   right: 10px;
-  
+
 
 }
 
@@ -425,31 +426,36 @@ body {
   margin-left: 5px;
   font-weight: bold;
 }
+
 .btn-resumen:hover {
- background-color: var(--azul-claro);
+  background-color: var(--azul-claro);
   cursor: pointer;
 }
+
 /*ESTILOS FORMULARIO PAGAR*/
 
 /*Contenedor formulario pagar*/
-.contenedor-formulario-pagar{
+.contenedor-formulario-pagar {
   width: 100vw;
   height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.formulario-pagar{
+
+.formulario-pagar {
   align-items: center;
   display: flex;
   flex-direction: column;
 }
-.encabezado-pagar{
+
+.encabezado-pagar {
   text-align: center;
   margin-top: 3rem;
   font-family: 'Montserrat', sans-serif;
 }
-.formulario-pagar > input{
+
+.formulario-pagar>input {
   width: 25rem;
   border: none;
   height: 1.2rem;
@@ -457,16 +463,18 @@ body {
   padding: 0;
   border-bottom: var(--negro) 1px solid;
 }
-.form-label{
-display: block;
-width: 100vw;
-text-align: left;
-margin-left: 61rem;
-padding: 0;
-margin-top: 2.5rem;
+
+.form-label {
+  display: block;
+  width: 100vw;
+  text-align: left;
+  margin-left: 61rem;
+  padding: 0;
+  margin-top: 2.5rem;
 }
-.btn-confirmar-pedido{
-   background-color: #3f51b5;
+
+.btn-confirmar-pedido {
+  background-color: #3f51b5;
   color: white;
   font-weight: bold;
   font-size: 18px;
@@ -477,19 +485,22 @@ margin-top: 2.5rem;
   width: 12rem;
   height: 3rem;
 }
+
 .btn-confirmar-pedido:hover {
- background-color: var(--azul-claro);
+  background-color: var(--azul-claro);
   cursor: pointer;
 }
-.encabezado-confirmar{
+
+.encabezado-confirmar {
   font-family: 'Montserrat', sans-serif;
   margin-top: 1.5rem;
 }
+
 /*Interfaz confirmación de pedido*/
 .producto-confirmacion {
   border: 1px solid #000;
   margin-bottom: 1.5rem;
-  width: 340px; 
+  width: 340px;
 
 }
 
@@ -519,11 +530,13 @@ margin-top: 2.5rem;
   font-size: 0.9rem;
   color: #888;
 }
+
 /*Pedidos del cliente*/
-.contenedor-tabla-pedidos-usuarios{
+.contenedor-tabla-pedidos-usuarios {
   width: 100vw;
   height: 70vh;
 }
+
 .tabla-pedidos {
   width: 100%;
   border-collapse: collapse;
@@ -539,6 +552,7 @@ margin-top: 2.5rem;
   padding: 0.75rem;
   font-size: 0.95rem;
 }
+
 /*ADMIN GESTIONAR PRODUCTOS*/
 .btn-crear-gestionar-productos {
   background-color: #4cd38a;
@@ -557,16 +571,18 @@ margin-top: 2.5rem;
   color: var(--blanco);
   font-weight: bold;
 }
+
 .btn-eliminar-gestionar-productos:hover {
   background-color: var(--rojo);
 }
+
 .btn-crear-gestionar-productos:hover,
 .btn-editar-gestionar-productos:hover {
   background-color: #3bb373;
 }
 
 .btn-eliminar-gestionar-productos:hover {
-  background-color:var(--rojo);
+  background-color: var(--rojo);
 }
 
 .tabla-gestionar-productos th {
@@ -576,26 +592,28 @@ margin-top: 2.5rem;
 .titulo-gestionar-productos {
   font-family: 'Montserrat', sans-serif;
 }
-.contenedor-tabla-gestion{
+
+.contenedor-tabla-gestion {
   width: 100vw;
   height: 70vh;
 
 }
+
 /*ADMIN GESTIONAR CATEGORIAS*/
 .btn-editar-gestionar-categorias {
   background-color: #4cd38a;
-  color:var(--blanco);
+  color: var(--blanco);
   font-weight: bold;
 }
 
 .btn-eliminar-gestionar-categorias {
-  background-color:var(--rojo);
+  background-color: var(--rojo);
   color: var(--blanco);
   font-weight: bold;
 }
 
 .btn-editar-gestionar-categorias:hover {
-  background-color:#4cd38a;
+  background-color: #4cd38a;
 }
 
 .btn-eliminar-gestionar-categorias:hover {
@@ -609,10 +627,12 @@ margin-top: 2.5rem;
 .titulo-gestionar-categorias {
   font-family: 'Montserrat', sans-serif;
 }
+
 .contenedor-tabla-gestion-categorias {
   width: 100vw;
   height: 70vh;
 }
+
 /*EDITAR AGREGAR PRODUCTO*/
 .titulo-editar-producto {
   font-family: 'Montserrat', sans-serif;
@@ -625,14 +645,14 @@ margin-top: 2.5rem;
 }
 
 .btn-subir-imagen-editar-producto {
-  background-color:var(--azul);
+  background-color: var(--azul);
   color: white;
   font-weight: bold;
   border: none;
 }
 
 .btn-subir-imagen-editar-producto:hover {
-  background-color:var(--azul-claro);
+  background-color: var(--azul-claro);
 }
 
 .btn-guardar-editar-producto {
@@ -646,17 +666,169 @@ margin-top: 2.5rem;
 }
 
 .btn-guardar-editar-producto:hover {
-  background-color:#4cd38a;
+  background-color: #4cd38a;
 }
 
 .editar-producto-label {
   font-weight: 500;
   font-size: 1rem;
-  color:var(--negro);
+  color: var(--negro);
   margin-bottom: 0.3rem;
   display: inline-block;
   font-family: 'Roboto', sans-serif;
 }
 
 
+/* INDEX */
+.contenedor-imagen-index {
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../../assets/index-hero.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
 
+.contenedor-texto-hero {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  height: 100%;
+  padding-left: 5rem;
+}
+
+.caja-texto-izquierda {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 2rem 3rem;
+  border-radius: 12px;
+  max-width: 500px;
+  color: white;
+  animation: fadeInLeft 1.2s ease;
+}
+
+.titulo-index {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.subtitulo-index {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--azul-claro);
+  margin-bottom: 1rem;
+}
+
+.descripcion-index {
+  font-size: 1rem;
+  color: #f1f1f1;
+}
+
+.powerly {
+  color:var(--azul-claro);
+}
+
+
+.categoria-index-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 1rem;
+  text-align: center;
+}
+
+.categoria-index-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background-color: #f8f9fa;
+}
+
+.categoria-index-card .card-img-top {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+}
+
+.categoria-index-card .card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--negro);
+  margin-top: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.seccion-categorias {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.container-text-principal {
+  max-width: 600px;
+  padding-left: 4rem;
+  animation: fadeInLeft 1s ease-in-out;
+}
+.frase-destacada {
+  background: linear-gradient(180deg, var(--negro), var(--azul));
+  color: white;
+  padding: 4rem 1rem;
+  margin-bottom: 3rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-frase {
+  font-size: 2.5rem;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 1rem;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+}
+
+.texto-frase {
+  font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.texto-frase .marca {
+  color: var(--azul-claro);
+  font-weight: bold;
+}
+
+.btn-explorar-productos {
+  background: var(--azul-claro);
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 81, 255, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-explorar-productos:hover {
+  background: var(--azul);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 81, 255, 0.5);
+}
+
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
