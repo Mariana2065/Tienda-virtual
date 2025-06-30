@@ -8,19 +8,21 @@ if ($res) {
     $categorias_menu = $res->fetch_all(MYSQLI_ASSOC);
 }
 
-// Define la ruta base de tu proyecto
-$base = '/Virtual_Store/Tienda-virtual';
+// Define la ruta base del proyecto
+$base = '/Tienda-virtual';
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Powerly Navbar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="<?php echo $base; ?>../view/css/style.css" rel="stylesheet">
+    <link href="<?php echo $base; ?>/view/css/style.css" rel="stylesheet">
 </head>
+
 <body>
     <header class="header">
         <!-- Menú hamburguesa -->
