@@ -1,4 +1,12 @@
-<?php include '../includes/header.php'; ?>
+<?php
+session_start();
+if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] !== 'admin') {
+    header('Location: ../index.php');
+    exit;
+}
+
+
+include '../includes/header.php'; ?>
 
 <main class="contenedor-tabla-pedidos-usuarios container mt-5">
   <h3 class="text-center mb-4">GESTIONAR PEDIDOS</h3>

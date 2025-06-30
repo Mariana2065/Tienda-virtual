@@ -47,7 +47,7 @@ $check->close();
 
   if(empty($errores)){
     // Preparar la consulta para insertar el usuario
-    $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, apellidos, email, password) VALUES (?, ?, ?, ?)");
+    $stmt = $conexion->prepare("INSERT INTO usuarios (nombre, apellidos, email, password, rol) VALUES (?, ?, ?, ?, 'cliente')");
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     
     if ($stmt) {

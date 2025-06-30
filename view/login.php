@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   if (empty($errores)) {
     // Buscar usuario por email
-    $stmt = $conexion->prepare("SELECT id, nombre, password FROM usuarios WHERE email = ?");
+    $stmt = $conexion->prepare("SELECT id, nombre, password, rol FROM usuarios WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -28,9 +28,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
       if (password_verify($password, $usuario['password'])) {
         // Inicio de sesión correcto
-        $_SESSION['usuario_id'] = $usuario['id'];
-        $_SESSION['usuario_nombre'] = $usuario['nombre'];
-        header("Location: index_view.php");
+        $_SESSION['usuario'] = [
+          'id' => $usuario['id'],
+          'nombre' => $usuario['nombre'],
+          'rol' => $usuario['rol']
+        ];
+        header("Location: admin-gestionar-productos.php");
         exit();
       } else {
         $errores[] = "Contraseña incorrecta.";
@@ -63,6 +66,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="col-md-6 d-flex align-items-center justify-content-center left-panel-login">
         <div class="login-form-container w-100" style="max-width: 400px;">
           <h2 class="form-title text-center mb-5">Iniciar sesión</h2>
+          <?php if (!empty($errores)): ?>
+  <div class="alert alert-danger">
+    <?php foreach ($errores as $error): ?>
+      <div><?php echo $error; ?></div>
+    <?php endforeach; ?>
+  </div>
+<?php endif; ?>
           <form method="POST" action=''>
             <div class="mb-3">
               <label class="form-label-login">Correo electrónico</label>
