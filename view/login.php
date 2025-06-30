@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
       </div>
 
-      <!-- Panel derecho nombre + icono -->
+      <!-- Panel derecho nombre + icono  -->
        <div class="col-md-6 d-flex flex-column align-items-center justify-content-center right-panel-icon-login"> 
          <img src="../assets/icon-powerly.png" alt="Powerly" class="icon-powerly-login"> 
          <h1 class="title-powerly-login mt-3">POWERLY</h1> 

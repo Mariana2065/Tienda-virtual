@@ -8,8 +8,9 @@ if ($res) {
     $categorias_menu = $res->fetch_all(MYSQLI_ASSOC);
 }
 
-// Define la ruta base del proyecto
+// Defino la ruta base del proyecto para los estilos y demas 
 $base = '/Tienda-virtual';
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
