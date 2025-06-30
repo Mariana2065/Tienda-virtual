@@ -36,8 +36,8 @@ $base = '/Virtual_Store/Tienda-virtual';
 
         <!-- Íconos de carrito y perfil -->
         <div class="d-flex gap-4">
-            <a href="#" class="icon-btn"><img src="<?php echo $base; ?>/assets/icon-carrito-compras.png" class="icon-perfil" alt="Carrito"></a>
-            <a href="#" class="icon-btn"><img src="<?php echo $base; ?>/assets/icon-perfil.png" class="icon-carrito-compras" alt="Perfil"></a>
+            <a href="carrito.php" class="icon-btn"><img src="<?php echo $base; ?>/assets/icon-carrito-compras.png" class="icon-perfil" alt="Carrito"></a>
+            <a href="perfil.php" class="icon-btn"><img src="<?php echo $base; ?>/assets/icon-perfil.png" class="icon-carrito-compras" alt="Perfil"></a>
         </div>
     </header>
 
@@ -49,7 +49,8 @@ $base = '/Virtual_Store/Tienda-virtual';
         </div>
         <div class="offcanvas-body">
             <ul class="nav flex-column">
-                <li class="nav-item"><a href="#" class="nav-link text-black">Mis pedidos</a></li>
+                <li class="nav-item"><a href="pedidos-usuarios.php" class="nav-link text-black">Mis pedidos</a></li>
+                
                 <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] === 'admin'): ?>
                 <li class="nav-item">
                 <a class="nav-link" href="admin-gestionar-pedido.php">Gestionar pedidos</a>
