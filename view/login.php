@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           'nombre' => $usuario['nombre'],
           'rol' => $usuario['rol']
         ];
-        header("Location: admin-gestionar-productos.php");
+        header("Location: index_incio.php");
         exit();
       } else {
         $errores[] = "Contraseña incorrecta.";

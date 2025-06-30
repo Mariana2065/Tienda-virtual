@@ -1,4 +1,41 @@
-<?php include '../includes/header.php'; ?>
+<?php
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+    exit();
+}
+
+require_once '../db/db.php';
+include '../includes/header.php';
+
+// Obtener categorías
+$categorias = [];
+$res_cat = $conexion->query("SELECT id, nombre FROM categorias");
+if ($res_cat) {
+    $categorias = $res_cat->fetch_all(MYSQLI_ASSOC);
+}
+
+// Obtener productos recientes/destacados
+$productos = [];
+$res = $conexion->query("SELECT id, nombre, descripcion, precio, imagen, categoria_id FROM productos ORDER BY id DESC");
+if ($res) {
+    $productos = $res->fetch_all(MYSQLI_ASSOC);
+}
+
+// Agrupar productos por categoría (solo el más reciente por categoría)
+$productos_por_categoria = [];
+foreach ($categorias as $cat) {
+    $productos_por_categoria[$cat['id']] = [
+        'nombre' => $cat['nombre'],
+        'producto' => null
+    ];
+}
+foreach ($productos as $prod) {
+    if (isset($productos_por_categoria[$prod['categoria_id']]) && $productos_por_categoria[$prod['categoria_id']]['producto'] === null) {
+        $productos_por_categoria[$prod['categoria_id']]['producto'] = $prod;
+    }
+}
+?>
 
 <!-- principal -->
 <section class="contenedor-imagen-index">
@@ -11,7 +48,6 @@
   </div>
 </section>
 
-
 <section class="frase-destacada">
   <div class="container text-center">
     <h2 class="titulo-frase">Más que ropa deportiva…</h2>
@@ -21,45 +57,51 @@
   </div>
 </section>
 
-
-<!-- Categorías Destacadas -->
+<!-- Categorías y un producto destacado por categoría -->
 <section id="categorias" class="seccion-categorias">
   <div class="container">
     <h2 class="text-center mb-5">Categorías destacadas</h2>
-    <div class="row justify-content-center">
-      <!-- Ropa de hombre -->
-      <div class="col-md-4 mb-4">
-        <div class=" categoria-index-card">
-          <img src="../assets/icon-powerly.png" class="card-img-top" alt="Ropa de hombre">
-          <div class="card-body text-center">
-            <h5 class="card-title">Ropa de hombre</h5>
-          </div>
+    <?php foreach ($categorias as $cat): ?>
+      <div class="mb-5">
+        <div class="d-flex align-items-center mb-3">
+          <img src="../assets/icon-powerly.png" alt="<?= htmlspecialchars($cat['nombre']) ?>" style="width:40px;height:40px;object-fit:cover;" class="me-2">
+          <h3 class="mb-0"><?= htmlspecialchars($cat['nombre']) ?></h3>
+          <a href="Categoria.php?id=<?= $cat['id'] ?>" class="ms-3 btn btn-outline-primary btn-sm">Ver todo</a>
+        </div>
+        <div class="row">
+          <?php
+          $prod = $productos_por_categoria[$cat['id']]['producto'];
+          if (!$prod):
+          ?>
+            <div class="col-12">
+              <p class="text-muted">No hay productos en esta categoría.</p>
+            </div>
+          <?php
+          else:
+          ?>
+            <div class="col-md-4 mb-4">
+              <div class="card h-100">
+                <img src="../assets/<?= htmlspecialchars($prod['imagen']) && file_exists("../assets/" . $prod['imagen']) ? htmlspecialchars($prod['imagen']) : 'no-image.png' ?>" alt="<?= htmlspecialchars($prod['nombre']) ?>" class="card-img-top" style="height:180px;object-fit:cover;">
+                <div class="card-body text-center">
+                  <h5 class="card-title"><?= htmlspecialchars($prod['nombre']) ?></h5>
+                  <p class="card-text"><?= htmlspecialchars($prod['descripcion']) ?></p>
+                  <p class="card-text fw-bold">$<?= number_format($prod['precio'], 0, ',', '.') ?></p>
+                  <a href="producto.php?id=<?= $prod['id'] ?>" class="btn btn-primary btn-sm">Ver producto</a>
+                  <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] === 'admin'): ?>
+                    <a href="editar-agregar-productos.php?id=<?= $prod['id'] ?>" class="btn btn-warning btn-sm ms-2">Editar</a>
+                    <a href="admin-gestionar-productos.php?eliminar=<?= $prod['id'] ?>" class="btn btn-danger btn-sm ms-2" onclick="return confirm('¿Seguro que deseas eliminar este producto?');">Eliminar</a>
+                  <?php endif; ?>
+                </div>
+              </div>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
-      <!-- Ropa de mujer -->
-      <div class="col-md-4 mb-4">
-        <div class=" categoria-index-card">
-          <img src="../assets/icon-powerly.png" class="card-img-top" alt="Ropa de mujer">
-          <div class="card-body text-center">
-            <h5 class="card-title">Ropa de mujer</h5>
-          </div>
-        </div>
-      </div>
-      <!-- Calzado -->
-      <div class="col-md-4 mb-4">
-        <div class=" categoria-index-card">
-          <img src="../issets/icon-powerly.png" class="card-img-top" alt="Calzado">
-          <div class="card-body text-center">
-            <h5 class="card-title">Calzado</h5>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php endforeach; ?>
     <div class="text-center mt-4">
-      <a href="#" class="btn btn-explorar-productos">Explorar productos</a>
+      <a href="productos.php" class="btn btn-explorar-productos">Explorar todos los productos</a>
     </div>
   </div>
 </section>
 
-<!-- Footer -->
 <?php include '../includes/footer.php'; ?>

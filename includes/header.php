@@ -52,7 +52,7 @@ $base = '/Tienda-virtual';
         <div class="offcanvas-body">
             <ul class="nav flex-column">
                 <li class="nav-item"><a href="#" class="nav-link text-black">Mis pedidos</a></li>
-                <li class="nav-item"><a href="#" class="nav-link text-white"><button class="btn-cerrar-sesion">Cerrar sesión</button></a></li>
+                <li class="nav-item"><a href="logout.php" class="nav-link text-white"><button class="btn-cerrar-sesion">Cerrar sesión</button></a></li>
             </ul>
         </div>
     </div>
