@@ -9,7 +9,7 @@ if ($res) {
 }
 
 // Define la ruta base de tu proyecto
-$base = '/Virtual_Store/Tienda-virtual';
+$base = '/Tienda-virtual';
 ?>
 <!DOCTYPE html>
 <html lang="es">
