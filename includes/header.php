@@ -29,7 +29,7 @@ $base = '/Virtual_Store/Tienda-virtual';
         </button>
 
         <!-- Logo -->
-        <a class="logo-header d-flex align-items-center mx-auto" href="<?php echo $base; ?>/index.php">
+        <a class="logo-header d-flex align-items-center mx-auto" href="<?php echo $base; ?>/view/index_incio.php">
             <img src="<?php echo $base; ?>/assets/icon-powerly.png" alt="Logo powerly" class="logo-powerly-header">
             <strong>POWERLY</strong>
         </a>
@@ -71,7 +71,7 @@ $base = '/Virtual_Store/Tienda-virtual';
     <!-- Nav categorias dinámico -->
     <nav class="nav-categorias">
         <ul>
-            <li><a href="<?php echo $base; ?>/index.php">Inicio</a></li>
+            <li><a href="<?php echo $base; ?>/view/index_incio.php">Inicio</a></li>
             <?php foreach ($categorias_menu as $cat): ?>
                 <li>
                     <a href="<?php echo $base; ?>/view/Categoria.php?id=<?php echo $cat['id']; ?>">

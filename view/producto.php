@@ -1,23 +1,23 @@
 <?php
 session_start();
 require_once '../db/db.php';
-include '../includes/header.php';
 
 // Obtener ID del producto
 $id = $_GET['id'] ?? null;
 if (!$id) {
-    header("Location: index_incio.php");
-    exit();
+  header("Location: index_incio.php");
+  exit();
 }
 
 // Obtener datos del producto
 $res = $conexion->query("SELECT * FROM productos WHERE id = $id");
 $producto = $res->fetch_assoc();
 if (!$producto) {
-    echo "<div class='container mt-5'><div class='alert alert-danger'>Producto no encontrado.</div></div>";
-    include '../includes/footer.php';
-    exit();
+  echo "<div class='container mt-5'><div class='alert alert-danger'>Producto no encontrado.</div></div>";
+  include '../includes/footer.php';
+  exit();
 }
+include '../includes/header.php';
 ?>
 
 <!---IR ATRAS PANEL-->
