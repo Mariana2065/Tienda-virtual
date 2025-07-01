@@ -52,9 +52,16 @@ $base = '/Virtual_Store/Tienda-virtual';
                 <li class="nav-item"><a href="pedidos-usuarios.php" class="nav-link text-black">Mis pedidos</a></li>
                 
                 <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] === 'admin'): ?>
+                    <li class="nav-item">
+                    <a class="nav-link" href="admin-gestionar-productos.php">Gestionar productos</a>
+                    </li>
                 <li class="nav-item">
                 <a class="nav-link" href="admin-gestionar-pedido.php">Gestionar pedidos</a>
                 </li>
+                <li class="nav-item">
+                <a class="nav-link" href="admin-gestionar-categoria.php">Gestionar Categorías</a>
+                </li>
+                
                 <?php endif; ?>
                 <li class="nav-item"><a href="logout.php" class="nav-link text-white"><button class="btn-cerrar-sesion">Cerrar sesión</button></a></li>
             </ul>
