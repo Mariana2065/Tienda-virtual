@@ -43,7 +43,7 @@ $result = $stmt->get_result();
 $pedidos = $result->fetch_all(MYSQLI_ASSOC);
 ?>
 
-<main class="contenedor-tabla-pedidos-usuarios container mt-5">
+<main class="contenedor-tabla-pedidos-usuarios container mt-5 min-vh-100">
   <h3 class="text-center mb-4">GESTIONAR PEDIDOS</h3>
 
   <form method="get" class="mb-3 d-flex align-items-center gap-2">
@@ -96,7 +96,7 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
                   <option value="enviado" <?= $pedido['estado'] === 'enviado' ? 'selected' : '' ?>>Enviado</option>
                   <option value="entregado" <?= $pedido['estado'] === 'entregado' ? 'selected' : '' ?>>Entregado</option>
                 </select>
-                <button type="submit" class="btn btn-primary btn-sm">Actualizar</button>
+                <button type="submit" class="btn btn-primary btn-sm btn-actualizar-pedido">Actualizar</button>
               </form>
             </td>
           </tr>

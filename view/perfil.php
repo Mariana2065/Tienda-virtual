@@ -98,57 +98,63 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['actualizar_password']
 include '../includes/header.php';
 ?>
 
-<div class="container mt-5">
+<div class="container">
     <h2>Mi perfil</h2>
-    <div class="card mb-4" style="max-width: 500px;">
-        <div class="card-body">
-            <h5 class="card-title">Datos personales</h5>
-            <?php if ($mensaje && !isset($_POST['actualizar_password'])): ?>
-                <div class="alert alert-success"><?= $mensaje ?></div>
-            <?php elseif ($error && !isset($_POST['actualizar_password'])): ?>
-                <div class="alert alert-danger"><?= $error ?></div>
-            <?php endif; ?>
-            <form method="post" autocomplete="off">
-                <div class="mb-3">
-                    <label for="nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" value="<?= htmlspecialchars($nombre) ?>" required>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Datos personales</h5>
+                    <?php if ($mensaje && !isset($_POST['actualizar_password'])): ?>
+                        <div class="alert alert-success"><?= $mensaje ?></div>
+                    <?php elseif ($error && !isset($_POST['actualizar_password'])): ?>
+                        <div class="alert alert-danger"><?= $error ?></div>
+                    <?php endif; ?>
+                    <form method="post" autocomplete="off">
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre</label>
+                            <input type="text" class="form-control input-perfil" id="nombre" name="nombre" value="<?= htmlspecialchars($nombre) ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="apellido" class="form-label">Apellido</label>
+                            <input type="text" class="form-control input-perfil" id="apellido" name="apellido" value="<?= htmlspecialchars($apellido) ?>" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control input-perfil" id="email" name="email" value="<?= htmlspecialchars($email) ?>" required>
+                        </div>
+                        <button type="submit" name="actualizar_datos" class="btn btn-primary btn-perfil">Actualizar datos</button>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="apellido" class="form-label">Apellido</label>
-                    <input type="text" class="form-control" id="apellido" name="apellido" value="<?= htmlspecialchars($apellido) ?>" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Correo electrónico</label>
-                    <input type="email" class="form-control" id="email" name="email" value="<?= htmlspecialchars($email) ?>" required>
-                </div>
-                <button type="submit" name="actualizar_datos" class="btn btn-primary">Actualizar datos</button>
-            </form>
+            </div>
         </div>
-    </div>
 
-    <div class="card" style="max-width: 500px;">
-        <div class="card-body">
-            <h5 class="card-title">Cambiar contraseña</h5>
-            <?php if ($mensaje && isset($_POST['actualizar_password'])): ?>
-                <div class="alert alert-success"><?= $mensaje ?></div>
-            <?php elseif ($error && isset($_POST['actualizar_password'])): ?>
-                <div class="alert alert-danger"><?= $error ?></div>
-            <?php endif; ?>
-            <form method="post" autocomplete="off">
-                <div class="mb-3">
-                    <label for="password_actual" class="form-label">Contraseña actual</label>
-                    <input type="password" class="form-control" id="password_actual" name="password_actual" required>
+        <div class="col-md-6">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Cambiar contraseña</h5>
+                    <?php if ($mensaje && isset($_POST['actualizar_password'])): ?>
+                        <div class="alert alert-success"><?= $mensaje ?></div>
+                    <?php elseif ($error && isset($_POST['actualizar_password'])): ?>
+                        <div class="alert alert-danger"><?= $error ?></div>
+                    <?php endif; ?>
+                    <form method="post" autocomplete="off">
+                        <div class="mb-3">
+                            <label for="password_actual" class="form-label">Contraseña actual</label>
+                            <input type="password" class="form-control input-perfil" id="password_actual" name="password_actual" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_nueva" class="form-label">Nueva contraseña</label>
+                            <input type="password" class="form-control input-perfil" id="password_nueva" name="password_nueva" required minlength="6">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password_confirmar" class="form-label">Confirmar nueva contraseña</label>
+                            <input type="password" class="form-control input-perfil" id="password_confirmar" name="password_confirmar" required minlength="6">
+                        </div>
+                        <button type="submit" name="actualizar_password" class="btn btn-primary btn-perfil">Actualizar contraseña</button>
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="password_nueva" class="form-label">Nueva contraseña</label>
-                    <input type="password" class="form-control" id="password_nueva" name="password_nueva" required minlength="6">
-                </div>
-                <div class="mb-3">
-                    <label for="password_confirmar" class="form-label">Confirmar nueva contraseña</label>
-                    <input type="password" class="form-control" id="password_confirmar" name="password_confirmar" required minlength="6">
-                </div>
-                <button type="submit" name="actualizar_password" class="btn btn-primary">Actualizar contraseña</button>
-            </form>
+            </div>
         </div>
     </div>
 </div>

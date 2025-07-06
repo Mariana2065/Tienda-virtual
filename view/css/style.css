@@ -11,6 +11,10 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+main {
+  flex: 1;
+  overflow-x: auto;
+}
 
 /* Definiendo los colores que se van a implementar */
 :root {
@@ -19,6 +23,9 @@ body {
   --negro: #000000;
   --rojo: #EC7265;
   --azul-claro: #8094DC;
+  --verde:#4cd38a;
+  --verde-oscuro:#3bb373;
+  --rojo-oscuro:#b02a37;
 }
 
 /* panel izquierdo y dereccho */
@@ -271,6 +278,7 @@ body {
   text-align: center;
   font-family: 'Roboto', sans-serif;
   margin-top: 2rem;
+  
 }
 
 .logo-footer {
@@ -508,7 +516,6 @@ body {
   display: block;
   width: 100vw;
   text-align: left;
-  margin-left: 61rem;
   padding: 0;
   margin-top: 2.5rem;
 }
@@ -591,20 +598,23 @@ body {
   border-bottom: 1px solid #ccc;
   padding: 0.75rem;
   font-size: 0.95rem;
+  gap: 0.5rem;
 }
 
 /*ADMIN GESTIONAR PRODUCTOS*/
 .btn-crear-gestionar-productos {
-  background-color: #4cd38a;
+  background-color: var(--verde);
   color: var(--blanco);
   font-weight: bold;
 }
 
+
 .btn-editar-gestionar-productos {
-  background-color: #4cd38a;
+  background-color: var(--verde);
   color: white;
   font-weight: bold;
 }
+
 
 .btn-eliminar-gestionar-productos {
   background-color: var(--rojo);
@@ -613,12 +623,14 @@ body {
 }
 
 .btn-eliminar-gestionar-productos:hover {
-  background-color: var(--rojo);
+  background-color: var(--rojo-oscuro);
+  color: var(--blanco);
 }
 
 .btn-crear-gestionar-productos:hover,
 .btn-editar-gestionar-productos:hover {
-  background-color: #3bb373;
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
 }
 
 .btn-eliminar-gestionar-productos:hover {
@@ -653,7 +665,7 @@ body {
 }
 
 .btn-editar-gestionar-categorias:hover {
-  background-color: #4cd38a;
+  background-color: var(--verde);
 }
 
 .btn-eliminar-gestionar-categorias:hover {
@@ -696,7 +708,7 @@ body {
 }
 
 .btn-guardar-editar-producto {
-  background-color: #4cd38a;
+  background-color: var(--verde);
   color: var(--blanco);
   font-weight: bold;
   padding: 0.6rem 2rem;
@@ -706,7 +718,7 @@ body {
 }
 
 .btn-guardar-editar-producto:hover {
-  background-color: #4cd38a;
+  background-color: var(--verde);
 }
 
 .editar-producto-label {
@@ -769,41 +781,91 @@ body {
 }
 
 
-.categoria-index-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+.seccion-categorias-index .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card-index {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #fff;
+}
+
+.card-index:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+
+.card-index .card-img-top {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+}
+
+/* Alineación y espaciado del contenido */
+.card-index .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
   padding: 1rem;
   text-align: center;
 }
 
-.categoria-index-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  background-color: #f8f9fa;
-}
-
-.categoria-index-card .card-img-top {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-}
-
-.categoria-index-card .card-title {
-  font-size: 1.2rem;
+/* Título y texto  */
+.card-index .card-title {
+  font-size: 1.1rem;
   font-weight: bold;
-  color: var(--negro);
-  margin-top: 0.5rem;
-  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 0.5rem;
 }
 
-.seccion-categorias {
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+.card-index .card-text {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
 }
+
+
+.card-index .btn {
+  font-size: 0.85rem;
+  margin: 0.25rem 0.3rem 0;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+}
+
+
+.card-index .btn-primary {
+  background-color:var(--azul);
+  border: none;
+}
+
+.card-index .btn-primary:hover {
+  background-color: var(--azul-claro);
+}
+
+/* Botones admin con colores personalizados */
+.card-index .btn-warning {
+  background-color: var(--verde);
+  border: none;
+  color: #333;
+}
+
+.card-index .btn-danger {
+  background-color: var(--rojo);
+  border: none;
+}
+
+.card-index .btn-danger:hover {
+  background-color: #b02a37;
+}
+
 
 .container-text-principal {
   max-width: 600px;
@@ -859,7 +921,14 @@ body {
   box-shadow: 0 8px 20px rgba(0, 81, 255, 0.5);
 }
 
-
+.input-perfil{
+  display: block;
+  width: 45%;
+  height: 2.5rem;
+  text-align: left;
+  padding: 0;
+  margin-top: 2.5rem;
+}
 @keyframes fadeInLeft {
   from {
     opacity: 0;
@@ -869,4 +938,69 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+.btn-perfil{
+  background: var(--azul-claro);
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 81, 255, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 25%;
+}
+.btn-perfil:hover {
+   background: var(--azul);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 81, 255, 0.5);
+}
+.contenedor-tabla-pedidos-usuarios{
+  width: 100vw;
+  height: 70vh;
+  margin-bottom: 2rem;
+}
+.btn-actualizar-pedido{
+  background: var(--azul-claro);
+  border: none;
+  color: white;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 81, 255, 0.3);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 9rem;
+}
+.btn-eliminar-gestionar-productos,
+.btn-danger{
+  background-color: var(--rojo);
+}
+.btn-warning{
+  background-color: var(--verde);
+  border: var(--verde);
+}
+.btn-warning:hover {
+  background-color: var(--verde-oscuro);
+}
+.btn-editar-gestionar-categorias,
+.btn-crear-gestionar-categorias{
+  background-color: var(--verde);
+  color: var(--blanco);
+  font-weight: bold;
+  border: var(--verde);
+}
+.btn-editar-gestionar-categorias:hover,
+.btn-crear-gestionar-categorias:hover {
+  background-color: var(--verde-oscuro);
+  color: var(--blanco);
+}
+.btn-eliminar-gestionar-categorias:hover {
+  background-color: var(--rojo-oscuro);
+  color: var(--blanco);
 }

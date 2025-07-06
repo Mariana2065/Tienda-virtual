@@ -77,7 +77,7 @@ if (isset($_GET['eliminar'])) {
         <input type="text" class="form-control" name="nombre_categoria" placeholder="Nombre de la categoría" value="<?php echo htmlspecialchars($nombre_categoria); ?>">
       </div>
       <div class="col-auto">
-        <button type="submit" class="btn btn-success"><?php echo $id ? 'Actualizar' : 'Crear'; ?></button>
+        <button type="submit" class="btn btn-success btn-crear-gestionar-categorias"><?php echo $id ? 'Actualizar' : 'Crear'; ?></button>
       </div>
       <?php if (!empty($errores)): ?>
         <div class="col-12">

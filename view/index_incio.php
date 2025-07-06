@@ -58,29 +58,30 @@ foreach ($productos as $prod) {
 </section>
 
 <!-- Categorías y un producto destacado por categoría -->
-<section id="categorias" class="seccion-categorias">
+<section id="categorias" class="seccion-categorias-index">
   <div class="container">
     <h2 class="text-center mb-5">Categorías destacadas</h2>
     <?php foreach ($categorias as $cat): ?>
       <div class="mb-5">
-        <div class="d-flex align-items-center mb-3">
-          <img src="../assets/icon-powerly.png" alt="<?= htmlspecialchars($cat['nombre']) ?>" style="width:40px;height:40px;object-fit:cover;" class="me-2">
-          <h3 class="mb-0"><?= htmlspecialchars($cat['nombre']) ?></h3>
-          <a href="Categoria.php?id=<?= $cat['id'] ?>" class="ms-3 btn btn-outline-primary btn-sm">Ver todo</a>
-        </div>
-        <div class="row">
+       <div class="d-flex justify-content-center align-items-center gap-3 mb-3">
+  <img src="../assets/icon-powerly.png" alt="<?= htmlspecialchars($cat['nombre']) ?>" style="width:40px;height:40px;object-fit:cover;">
+  <h3 class="mb-0"><?= htmlspecialchars($cat['nombre']) ?></h3>
+  <a href="Categoria.php?id=<?= $cat['id'] ?>" class="btn btn-outline-primary btn-sm">Ver todo</a>
+</div>
+
+        <div class="row justify-content-center g-4">
           <?php
           $prod = $productos_por_categoria[$cat['id']]['producto'];
           if (!$prod):
           ?>
             <div class="col-12">
-              <p class="text-muted">No hay productos en esta categoría.</p>
+              <p class="text-muted text-center">No hay productos en esta categoría.</p>
             </div>
           <?php
           else:
           ?>
             <div class="col-md-4 mb-4">
-              <div class="card h-100">
+              <div class="card-index">
                 <img src="../assets/<?= htmlspecialchars($prod['imagen']) && file_exists("../assets/" . $prod['imagen']) ? htmlspecialchars($prod['imagen']) : 'no-image.png' ?>" alt="<?= htmlspecialchars($prod['nombre']) ?>" class="card-img-top" style="height:180px;object-fit:cover;">
                 <div class="card-body text-center">
                   <h5 class="card-title"><?= htmlspecialchars($prod['nombre']) ?></h5>
