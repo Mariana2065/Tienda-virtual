@@ -7,6 +7,6 @@ if (isset($_COOKIE[session_name()])) {
     setcookie(session_name(), '', time()-3600, '/');
 }
 
-header("Location: ../view/login.php");
+header("Location: ../view/index.php");
 exit();
 ?>
