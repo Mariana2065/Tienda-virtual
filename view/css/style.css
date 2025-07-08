@@ -1054,3 +1054,7 @@ main {
   color: var(--verde);
   margin-bottom: 0.5rem;
 }
+.nav-link{
+  text-decoration: none;
+  color: var(--negro);
+}
