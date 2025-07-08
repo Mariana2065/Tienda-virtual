@@ -6,7 +6,7 @@ include '../includes/header.php';
 // Obtener todos los productos
 $res = $conexion->query("SELECT * FROM productos ORDER BY id DESC");
 // paginación 
-$productosPorPagina = 3;
+$productosPorPagina = 9;
 $paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
 if ($paginaActual < 1) $paginaActual = 1;
 
