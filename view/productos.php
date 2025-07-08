@@ -5,6 +5,18 @@ include '../includes/header.php';
 
 // Obtener todos los productos
 $res = $conexion->query("SELECT * FROM productos ORDER BY id DESC");
+// paginación 
+$productosPorPagina = 3;
+$paginaActual = isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1;
+if ($paginaActual < 1) $paginaActual = 1;
+
+$offset = ($paginaActual - 1) * $productosPorPagina;
+
+$totalProductos = $conexion->query("SELECT COUNT(*) as total FROM productos")->fetch_assoc()['total'];
+$totalPaginas = ceil($totalProductos / $productosPorPagina);
+
+$res = $conexion->query("SELECT * FROM productos ORDER BY id DESC LIMIT $productosPorPagina OFFSET $offset");
+
 ?>
 
 <div class="container mt-5">
@@ -25,6 +37,31 @@ $res = $conexion->query("SELECT * FROM productos ORDER BY id DESC");
     <?php endwhile; ?>
   </div>
 </div>
+<div class="mt-4 d-flex justify-content-center">
+  <nav>
+    <ul class="pagination">
+      <?php if ($paginaActual > 1): ?>
+        <li class="page-item">
+          <a class="page-link" href="?pagina=<?= $paginaActual - 1 ?>">Anterior</a>
+        </li>
+      <?php endif; ?>
+
+      <?php for ($i = 1; $i <= $totalPaginas; $i++): ?>
+        <li class="page-item <?= $i == $paginaActual ? 'active' : '' ?>">
+          <a class="page-link" href="?pagina=<?= $i ?>"><?= $i ?></a>
+        </li>
+      <?php endfor; ?>
+
+      <?php if ($paginaActual < $totalPaginas): ?>
+        <li class="page-item">
+          <a class="page-link" href="?pagina=<?= $paginaActual + 1 ?>">Siguiente</a>
+        </li>
+      <?php endif; ?>
+    </ul>
+  </nav>
+</div>
+
+
 
 
 <?php include '../includes/footer.php'; ?>
