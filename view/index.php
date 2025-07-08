@@ -2,7 +2,7 @@
 session_start();
 
 require_once '../db/db.php';
-require_once '../includes/header2.php';
+require_once '../includes/header.php';
 // Obtener productos
 $productos = [];
 $res = $conexion->query("SELECT id, nombre, descripcion, precio, imagen FROM productos ORDER BY id DESC");

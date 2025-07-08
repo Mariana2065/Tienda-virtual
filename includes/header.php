@@ -24,9 +24,11 @@ $base = '/Tienda-virtual';
 <body>
     <header class="header">
         <!-- Menú hamburguesa -->
+         <?php if(isset($_SESSION['usuario'])): ?>
         <button class="icon-menu-btn me-3" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
             <img src="<?php echo $base; ?>/assets/icon-menú.png" class="lista-desplegable" alt="Menú">
         </button>
+        <?php endif ?>
 
         <!-- Logo -->
         <a class="logo-header d-flex align-items-center mx-auto" href="<?php echo $base; ?>/view/index_incio.php">
@@ -71,7 +73,7 @@ $base = '/Tienda-virtual';
     <!-- Nav categorias dinámico -->
     <nav class="nav-categorias">
         <ul>
-            <li><a href="<?php echo $base; ?>/view/index_incio.php">Inicio</a></li>
+            <li><a href="<?=isset($_SESSION['usuario']) ? '../view/index_incio.php' : '../view/index.php'?>">Inicio</a></li>
             <?php foreach ($categorias_menu as $cat): ?>
                 <li>
                     <a href="<?php echo $base; ?>/view/Categoria.php?id=<?php echo $cat['id']; ?>">
