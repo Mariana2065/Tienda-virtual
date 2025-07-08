@@ -69,12 +69,13 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
         <th>Fecha</th>
         <th>Estado</th>
         <th>Cambiar estado</th>
+        <th>Ver detalle</th>
       </tr>
     </thead>
     <tbody>
       <?php if (empty($pedidos)): ?>
         <tr>
-          <td colspan="9">No hay pedidos.</td>
+          <td colspan="10">No hay pedidos.</td>
         </tr>
       <?php else: ?>
         <?php foreach ($pedidos as $pedido): ?>
@@ -98,6 +99,9 @@ $pedidos = $result->fetch_all(MYSQLI_ASSOC);
                 </select>
                 <button type="submit" class="btn btn-primary btn-sm btn-actualizar-pedido">Actualizar</button>
               </form>
+            </td>
+            <td>
+              <a href="detalle-pedido.php?id=<?= $pedido['id'] ?>" class="btn btn-info btn-sm">Ver</a>
             </td>
           </tr>
         <?php endforeach; ?>

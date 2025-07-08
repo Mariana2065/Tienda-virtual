@@ -24,11 +24,10 @@ $base = '/Tienda-virtual';
 <body>
     <header class="header">
         <!-- Menú hamburguesa -->
-         <?php if(isset($_SESSION['usuario'])): ?>
+        
         <button class="icon-menu-btn me-3" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">
             <img src="<?php echo $base; ?>/assets/icon-menú.png" class="lista-desplegable" alt="Menú">
         </button>
-        <?php endif ?>
 
         <!-- Logo -->
         <a class="logo-header d-flex align-items-center mx-auto" href="<?php echo $base; ?>/view/index_incio.php">
@@ -51,8 +50,13 @@ $base = '/Tienda-virtual';
         </div>
         <div class="offcanvas-body">
             <ul class="nav flex-column">
+                <?php if (!isset($_SESSION['usuario'])): ?>
+                    <li class="nav-item"><a href="login.php" class="nav-link text-black">Iniciar sesión</a></li>
+                    <li class="nav-item"><a href="register.php" class="nav-link text-black">Registrarse</a></li>
+
+                <?php else: ?>
                 <li class="nav-item"><a href="pedidos-usuarios.php" class="nav-link text-black">Mis pedidos</a></li>
-                
+                <?php endif; ?>
                 <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['rol'] === 'admin'): ?>
                     <li class="nav-item">
                     <a class="nav-link" href="admin-gestionar-productos.php">Gestionar productos</a>
@@ -65,7 +69,12 @@ $base = '/Tienda-virtual';
                 </li>
                 
                 <?php endif; ?>
+
+                <?php if(isset($_SESSION['usuario'])): ?>
+
                 <li class="nav-item"><a href="logout.php" class="nav-link text-white"><button class="btn-cerrar-sesion">Cerrar sesión</button></a></li>
+
+                <?php endif;?>
             </ul>
         </div>
     </div>
@@ -83,3 +92,5 @@ $base = '/Tienda-virtual';
             <?php endforeach; ?>
         </ul>
     </nav>
+</body>
+</html>

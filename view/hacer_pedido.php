@@ -28,28 +28,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $total = 0;
     $ids = implode(',', array_keys($carrito));
     $res = $conexion->query("SELECT id, precio FROM productos WHERE id IN ($ids)");
+
+    $precios = [];
     while ($prod = $res->fetch_assoc()) {
-        $prod_id = $prod['id'];
-        $cantidad = $carrito[$prod_id];
-        $total += $prod['precio'] * $cantidad;
+        $id_producto = $prod['id'];
+        $precios[$id_producto] = $prod['precio'];
+        $total += $prod['precio'] * $carrito[$id_producto];
     }
 
-    // Insertar pedido con datos de envío
+    // Insertar pedido en la tabla pedidos
     $estado = 'pendiente';
     $fecha = date('Y-m-d');
-    $stmt = $conexion->prepare("INSERT INTO pedidos (usuario_id, provincia, localidad, direccion, total, estado, fecha) VALUES (?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("isssdss", $usuario_id, $provincia, $localidad, $direccion, $total, $estado, $fecha);
-    $stmt->execute();
-    $pedido_id = $stmt->insert_id;
+    $hora = date('H:i:s');
+    $stmt = $conexion->prepare("INSERT INTO pedidos (usuario_id, provincia, localidad, direccion, total, estado, fecha, hora) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("isssdsss", $usuario_id, $provincia, $localidad, $direccion, $total, $estado, $fecha, $hora);
 
-    // (Opcional) Aquí puedes guardar los productos del pedido en otra tabla, si tienes una tabla detalle_pedidos
+    if ($stmt->execute()) {
+        $pedido_id = $stmt->insert_id;
 
-    // Limpiar carrito
-    unset($_SESSION['carrito']);
+        // Insertar cada producto en la tabla lineas_pedidos
+        $stmt_linea = $conexion->prepare("INSERT INTO lineas_pedidos (pedido_id, producto_id, unidades) VALUES (?, ?, ?)");
 
-    // Redirigir al historial de pedidos
-    header("Location: pedidos-usuarios.php");
-    exit();
+        foreach ($carrito as $producto_id => $cantidad) {
+            $stmt_linea->bind_param("iii", $pedido_id, $producto_id, $cantidad);
+            $stmt_linea->execute();
+        }
+
+        // Limpiar carrito
+        unset($_SESSION['carrito']);
+
+        // Redirigir al detalle del pedido
+        header("Location: detalle-pedido.php?id=" . $pedido_id);
+        exit();
+    } else {
+        echo "Error al guardar el pedido: " . $stmt->error;
+    }
 }
 ?>
 

@@ -33,12 +33,13 @@ if ($result) {
         <th>Precio</th>
         <th>Fecha</th>
         <th>Estado</th>
+        <th>Detalle</th>
       </tr>
     </thead>
     <tbody>
       <?php if (empty($pedidos)): ?>
         <tr>
-          <td colspan="4">No tienes pedidos aún.</td>
+          <td colspan="5">No tienes pedidos aún.</td>
         </tr>
       <?php else: ?>
         <?php foreach ($pedidos as $pedido): ?>
@@ -47,6 +48,9 @@ if ($result) {
             <td>$<?= number_format($pedido['total'], 0, ',', '.') ?></td>
             <td><?= htmlspecialchars($pedido['fecha']) ?></td>
             <td><?= htmlspecialchars($pedido['estado']) ?></td>
+            <td>
+              <a href="detalle-pedido.php?id=<?= $pedido['id'] ?>" class="btn btn-primary btn-sm">Ver detalle</a>
+            </td>
           </tr>
         <?php endforeach; ?>
       <?php endif; ?>
